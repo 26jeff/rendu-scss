@@ -3,60 +3,230 @@ body{
 }
 
 .vh-100{
-    height: 100vh;
+    @include height(100vh);
+}
+
+.flex{
+    display: flex;
+}
+
+.absolute{
+    position: absolute;
 }
 
 .Page-1{
-    background-image: linear-gradient(120deg, rgba(96, 160, 216, 0.5),rgba(178, 210, 52, 0.5)), url('../scss/images/bc-1.png');
+    background-image: linear-gradient(140deg, rgba(96, 160, 216, 0.6),rgba(178, 210, 52, 0.6)), url('../scss/images/bc-1.png');
     background-size: cover;
-    display: flex;
     flex-direction: column;
 
     header{
-        display: flex;
+        @include align-items(center);
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
 
         .logo{
-            margin-top: 20px;
-            margin-left: 20px;
+            @include margin(30px 0 0 30px);
         }
 
-        a{
-            color: $color-white;
-            @include font(18px, $font-weight-light);
-        }
+        ul{
+            @include gap(100px);
+            @include margin(40px 50px 0 0);
 
-        button{
-            background-color: $color-white;
-            color: $color-primary;
-            @include font(18px, $font-weight-semibold);
+            a{
+                @include text-color($color-white);
+                @include font(18px, $font-weight-light);
+                text-decoration: none;
+            }
+
+            a:hover{
+                text-decoration: underline;
+                text-decoration-skip-ink: auto;
+                text-underline-offset: 5px; 
+            }
+
+            button{
+                @include background-color($color-white);
+                @include text-color($color-primary);
+                @include font(18px, $font-weight-semibold);
+                @include padding(10px 20px);
+                @include margin(-10px 0 0 0);
+                @include border(none, 5px);
+                cursor: pointer;
+            }
         }
     }
 
     h1{
-        color: $color-white;
+        @include text-color($color-white);
         @include font(126px, $font-weight-semibold);
-        align-self: center;
-        justify-content: center;
+        top: 35%;
+        left: 36%;
     }
 
     .sous-titre{
-        color: $color-white;
+        @include text-color($color-white);
         @include font(54px, $font-weight-regular, italic);
         transform: rotate(-9deg);
+        top: 52%;
+        left: 40%;
+    }
+
+    .social-icons{
+        @include margin(0 50px 50px 0);
+        bottom: 0;
+        right: 0;
     }
 }
 
 .Page-2{
-    @include background-image('../scss/images/Headerback.png');
+    @include background-image('../scss/images/fondblur.png');
+
+    .titre-texte-bouton{
+        @include margin(160px 0 0 100px);
+
+        h2{
+            @include text-color($color-primary);
+            @include font(64px, $font-weight-semibold);
+        }
+
+        p{
+            @include text-color($color-secondary);
+            @include font(26px, $font-weight-light);
+            @include margin(40px 0 20px 0);
+            @include word-wrap(break-word);
+            @include width(600px);
+            @include line-height(1.2);
+        }
+
+        button{
+            @include background-color($color-primary);
+            @include text-color($color-white);
+            @include font(28px, $font-weight-semibold);
+            @include border(none, 5px);
+            @include padding(13px 45px);
+            @include margin(25px 0 0 0);
+            cursor: pointer;
+        }
+
+    }
+
+    img{
+        @include margin(0 0 0 100px);
+    }
+
 }
 
 .Page-3{
     @include background-image('../scss/images/bc-3.png');
+
+    .card{
+        @include height(650px);
+        @include width(600px);
+        @include background-color(rgba(178, 210, 52, 0.85));
+        @include margin(80px 0 0 0);
+        left: 50%;    
+
+        h2{
+            @include text-color($color-white);
+            @include font(54px, $font-weight-semibold);
+            @include margin(50px 0 0 50px);
+            @include center-text();
+            @include word-wrap(break-word);
+            @include width(500px);
+        }
+
+        p{ 
+            @include text-color($color-white);
+            @include font(22px, $font-weight-light);
+            @include margin(40px 0 20px 50px);
+            @include word-wrap(break-word);
+            @include width(500px);
+            @include center-text();
+            @include line-height(1.2);
+        }
+
+        button{
+            @include background-color($color-white);
+            @include text-color($color-primary);
+            @include font(28px, $font-weight-semibold);
+            @include border(none, 5px);
+            @include padding(13px 45px);
+            @include margin(25px 0 0 180px);
+            cursor: pointer;
+        }
+    }
 }
 
 .Page-5{
     @include background-image('../scss/images/bc-5.png');
+
+    .card{
+        @include height(500px);
+        @include width(700px);
+        @include margin(150px 0 0 0);
+
+        h2{
+            @include text-color($color-white);
+            @include font(60px, $font-weight-semibold);
+            @include margin(50px 0 0 100px);
+            @include center-text();
+            @include word-wrap(break-word);
+            @include width(500px);
+        }
+        
+        .textes{
+            @include margin(70px 0 20px 20px);
+
+            p{ 
+                @include text-color($color-white);
+                @include font(22px, $font-weight-light);
+                @include word-wrap(break-word);
+                @include width(500px);
+                @include center-text();
+                @include line-height(1.2);
+            }
+        }
+    }
+
+    .card-vert{
+        @include background-color(rgba(178, 210, 52, 0.85));
+        left: 5%;
+    }
+
+    .card-bleu{
+        @include background-color(rgba(96, 160, 216, 0.85));
+        left: 50%;
+    }
+}
+
+footer{
+    @include height(30vh);
+    @include background-color($color-primary);
+    @include align-items(center);
+    @include gap(200px);
+    @include center-text();
+
+    .logo{
+        @include margin(0 0 0 60px);
+    }
+
+    .number-1{
+        @include margin(0 0 0 30%);
+    }
+
+    .block-footer{
+        justify-content: center;
+
+        h5{
+            @include text-color($color-white);
+            @include font(24px, $font-weight-semibold);
+        }
+
+        p{
+            @include text-color($color-white);
+            @include font(18px, $font-weight-light);
+            @include margin(20px 0 20px 0);
+            @include line-height(1.5);
+        }
+    }
 }

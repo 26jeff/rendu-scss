@@ -98,3 +98,39 @@
     background-image: url($image);
     background-size: cover;
 }
+
+// Mixin pour word-wrap
+@mixin word-wrap($wrap) {
+    word-wrap: $wrap;
+}
+
+// Mixin pour line-height
+@mixin line-height($height) {
+    line-height: $height;
+}
+
+// Mixin height
+@mixin height($height) {
+    height: $height;
+}
+
+// Mixin width
+@mixin width($width) {
+    width: $width;
+}
+
+// Mixin gap
+@mixin gap($gap) {
+    gap: $gap;
+}
+
+// Mixin align-items
+@mixin align-items($align) {
+    align-items: $align;
+}
+
+// Mixin border
+@mixin border($border, $border-radius: 0) {
+    border: $border;
+    border-radius: $border-radius;
+}
